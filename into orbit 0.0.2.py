@@ -8,8 +8,11 @@ import pygame, math, sys, time, numpy as np, random
 pygame.init(); print()
 screen = pygame.display.set_mode(size=(1000, 600), flags=pygame.RESIZABLE)
 pygame.display.set_caption('Into Orbit I (v0.0.2)')
-Icon = pygame.image.load(rf'{sys.path[0]}\intoorbit.png')
-pygame.display.set_icon(Icon)
+try:
+    Icon = pygame.image.load(rf'{sys.path[0]}\intoorbit.png')
+    pygame.display.set_icon(Icon)
+except:
+    print("Couldn't find icon.")
 
 def randomHex():
     Hex = [hex(random.randint(0,255))[2::] for _ in '123']
